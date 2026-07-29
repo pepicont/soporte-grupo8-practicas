@@ -1,0 +1,48 @@
+#:import Factory kivy.factory.Factory
+
+<TabbedPannel>:
+    size_hint: .5, .5
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    do_default_tab: False
+
+    TabbedPanelItem:
+        text: 'Saludos'
+        BoxLayout:
+            orientation: 'vertical'
+
+            Button:
+                text: 'Divertido'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='HOLAAAA :D'), size_hint=(0.5, 0.5))
+                    popup.open()
+            Button:
+                text: 'Triste'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='hola ;('), size_hint=(0.5, 0.5))
+                    popup.open()
+            Button:
+                text: 'Agresivo'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='Hola.'), size_hint=(0.5, 0.5))
+                    popup.open()
+
+    TabbedPanelItem:
+        text: 'Despedidas'
+        BoxLayout:
+            orientation: 'vertical'
+
+            Button:
+                text: 'Abuela'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='Hasta mañana si Dios quiere'), size_hint=(0.5, 0.5))
+                    popup.open()
+            Button:
+                text: 'Perro'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='guau'), size_hint=(0.5, 0.5))
+                    popup.open()
+            Button:
+                text: 'Youtuber'
+                on_press:
+                    popup = Factory.Popup(title='Test popup', content=Factory.Label(text='subscribanse y denle like'), size_hint=(0.5, 0.5))
+                    popup.open()

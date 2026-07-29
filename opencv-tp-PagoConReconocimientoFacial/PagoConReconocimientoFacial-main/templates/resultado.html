@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ titulo }}</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f6fb;
+        color: #162033;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #d8dee8;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 14px 40px rgba(22, 32, 51, 0.12);
+      }
+
+      .result-box {
+        white-space: pre-wrap;
+        background: #f8fafc;
+        border: 1px solid #d8dee8;
+        border-radius: 16px;
+        padding: 16px;
+        line-height: 1.6;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-outline {
+        background: white;
+        color: #162033;
+        border: 1px solid #d8dee8;
+      }
+
+      .btn-primary {
+        background: #2266ee;
+      }
+      .btn-gray {
+        background: #6f7782;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h2>{{ titulo }}</h2>
+        <div class="result-box">{{ detalle }}</div>
+        <div class="toolbar">
+          <a class="btn btn-outline" href="{{ volver_url }}">Volver</a>
+          <a class="btn btn-primary" href="{{ inicio_url }}">Ir al inicio</a>
+          <a class="btn btn-gray" href="{{ url_for('usuarios_page') }}"
+            >Ver usuarios</a
+          >
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

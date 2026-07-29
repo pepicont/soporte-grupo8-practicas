@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Pago Biométrico</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: radial-gradient(
+          circle at top left,
+          #edf3ff 0,
+          #f4f6fb 45%,
+          #eef1f7 100%
+        );
+        color: #162033;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #d8dee8;
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 14px 40px rgba(22, 32, 51, 0.12);
+      }
+
+      .muted {
+        color: #5f6b7a;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .stat {
+        border: 1px solid #d8dee8;
+        border-radius: 14px;
+        padding: 14px;
+        background: #f8fbff;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: #2266ee;
+      }
+      .btn-green {
+        background: #1e9e63;
+      }
+      .btn-gray {
+        background: #6f7782;
+      }
+
+      .note {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: #f7f9fc;
+        border: 1px solid #d8dee8;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h1>Punto de Venta</h1>
+        <p class="muted">
+          Protegido con verificacion de persona real (rPPG diferencial). La
+          cámara se abre en el escritorio con OpenCV, pero el acceso y las
+          pantallas se manejan desde Flask y HTML.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>{{ total_usuarios }}</strong
+            ><span>Usuarios en banco.db</span>
+          </div>
+          <div class="stat">
+            <strong>{{ cantidad_dataset }}</strong
+            ><span>Fotos cargadas en dataset</span>
+          </div>
+          <div class="stat">
+            <strong>OpenCV</strong><span>Captura local en escritorio</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <a class="btn btn-primary" href="{{ url_for('cobrar_page') }}"
+            >Iniciar Escaneo y Cobrar</a
+          >
+          <a class="btn btn-green" href="{{ url_for('registrar_page') }}"
+            >Registrar Nuevo Usuario</a
+          >
+          <a class="btn btn-gray" href="{{ url_for('usuarios_page') }}"
+            >Ver o Modificar Usuarios</a
+          >
+        </div>
+
+        <div class="note">
+          La lógica facial y de base de datos sigue en el backend. Cada acción
+          abre una pantalla HTML distinta y, cuando corresponde, dispara la
+          cámara de escritorio con OpenCV.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
